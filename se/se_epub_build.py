@@ -43,7 +43,7 @@ ARIA_ROLES = ["afterword", "appendix", "biblioentry", "bibliography", "chapter",
 
 def build(self, run_epubcheck: bool, build_kobo: bool, build_kindle: bool, output_directory: Path, proof: bool, build_covers: bool) -> None:
 	"""
-	Entry point for `se build`
+	Entry point for `libro build`
 	"""
 
 	# Check for some required tools

@@ -40,15 +40,15 @@ def _get_version() -> str:
 
 setup(
 	version=_get_version(),
-	name="standardebooks",
-	description="The toolset used to produce Standard Ebooks epub ebooks.",
+	name="libro_org",
+	description="The toolset used to produce Libro.Org epub ebooks.",
 	long_description=_get_file_contents(Path(__file__).resolve().parent / "README.md"),
 	long_description_content_type="text/markdown",
-	url="https://standardebooks.org",
-	author="Standard Ebooks",
-	author_email="admin@standardebooks.org",
+	url="https://libro.org",
+	author="Libro.Org",
+	author_email="admin@libro.org",
 	classifiers=[
-		"Development Status :: 5 - Production/Stable",
+		"Development Status :: 3 - Alpha",
 		"Intended Audience :: Developers",
 		"Topic :: Software Development :: Build Tools",
 		"License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
@@ -85,10 +85,10 @@ setup(
 	include_package_data=True,
 	entry_points={
 		"console_scripts": [
-			"se = se.main:main",
+			"libro = se.main:main",
 		],
 	},
 	project_urls={
-		"Source": "https://github.com/standardebooks/tools/",
+		"Source": "https://github.com/Libro-Org/tools/",
 	}
 )

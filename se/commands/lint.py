@@ -17,7 +17,7 @@ from se.se_epub import SeEpub
 
 def lint() -> int:
 	"""
-	Entry point for `se lint`
+	Entry point for `libro lint`
 	"""
 
 	parser = argparse.ArgumentParser(description="Check for various Standard Ebooks style errors.")

@@ -30,7 +30,7 @@ def _split_file_output_file(filename_format_string: str, chapter_number: int, te
 
 def split_file() -> int:
 	"""
-	Entry point for `se split-file`
+	Entry point for `libro split-file`
 	"""
 
 	parser = argparse.ArgumentParser(description="Split an XHTML file into many files at all instances of <!--se:split-->, and include a header template for each file.")

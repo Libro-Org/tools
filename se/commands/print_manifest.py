@@ -12,7 +12,7 @@ from se.se_epub import SeEpub
 
 def print_manifest() -> int:
 	"""
-	Entry point for `se print-manifest`
+	Entry point for `libro print-manifest`
 	"""
 
 	parser = argparse.ArgumentParser(description="Print the <manifest> element for the given Standard Ebooks source directory to standard output, for use in that directory’s content.opf.")

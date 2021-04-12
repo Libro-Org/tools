@@ -31,7 +31,7 @@ def _resize_canvas(image: Image, new_width: int, new_height: int) -> Image:
 
 def compare_versions() -> int:
 	"""
-	Entry point for `se compare-versions`
+	Entry point for `libro compare-versions`
 	"""
 
 	parser = argparse.ArgumentParser(description="Use Firefox to render and compare XHTML files in an ebook repository. Run on a dirty repository to visually compare the repository’s dirty state with its clean state. If a file renders differently, place screenshots of the new, original, and diff (if available) renderings in the current working directory. A file called diff.html is created to allow for side-by-side comparisons of original and new files.")

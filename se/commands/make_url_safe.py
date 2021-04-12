@@ -11,7 +11,7 @@ import se.formatting
 
 def make_url_safe() -> int:
 	"""
-	Entry point for `se make-url-safe`
+	Entry point for `libro make-url-safe`
 	"""
 
 	parser = argparse.ArgumentParser(description="Make a string URL-safe.")

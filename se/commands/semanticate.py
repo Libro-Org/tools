@@ -12,7 +12,7 @@ import se.formatting
 
 def semanticate() -> int:
 	"""
-	Entry point for `se semanticate`
+	Entry point for `libro semanticate`
 	"""
 
 	parser = argparse.ArgumentParser(description="Automatically add semantics to Standard Ebooks source directories.")

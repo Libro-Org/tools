@@ -14,7 +14,7 @@ import se.easy_xml
 
 def typogrify() -> int:
 	"""
-	Entry point for `se typogrify`
+	Entry point for `libro typogrify`
 	"""
 
 	parser = argparse.ArgumentParser(description="Apply some scriptable typography rules from the Standard Ebooks typography manual to XHTML files.")

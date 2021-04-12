@@ -12,7 +12,7 @@ import se.spelling
 
 def modernize_spelling() -> int:
 	"""
-	Entry point for `se modernize-spelling`
+	Entry point for `libro modernize-spelling`
 	"""
 
 	parser = argparse.ArgumentParser(description="Modernize spelling of some archaic words, and replace words that may be archaically compounded with a dash to a more modern spelling. For example, replace `ash-tray` with `ashtray`.")

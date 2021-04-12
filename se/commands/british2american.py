@@ -12,7 +12,7 @@ import se.typography
 
 def british2american() -> int:
 	"""
-	Entry point for `se british2american`
+	Entry point for `libro british2american`
 	"""
 
 	parser = argparse.ArgumentParser(description="Try to convert British quote style to American quote style. Quotes must already be typogrified using the `typogrify` tool. This script isn’t perfect; proofreading is required, especially near closing quotes near to em-dashes.")

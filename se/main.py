@@ -1,5 +1,5 @@
 """
-This file contains the entry point for the `se` command.
+This file contains the entry point for the `libro` command.
 """
 
 import argparse
@@ -26,7 +26,7 @@ def get_commands() -> List[str]:
 
 def main() -> None:
 	"""
-	Entry point for the main `se` executable.
+	Entry point for the main `libro` executable.
 
 	This function delegates subcommands (like `se typogrify`) to individual submodules under `se.commands`.
 	"""

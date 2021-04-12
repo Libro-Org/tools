@@ -11,7 +11,7 @@ import se.formatting
 
 def titlecase() -> int:
 	"""
-	Entry point for `se titlecase`
+	Entry point for `libro titlecase`
 	"""
 
 	parser = argparse.ArgumentParser(description="Convert a string to titlecase.")

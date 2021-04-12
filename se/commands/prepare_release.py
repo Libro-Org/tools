@@ -13,7 +13,7 @@ from se.se_epub import SeEpub
 
 def prepare_release() -> int:
 	"""
-	Entry point for `se prepare-release`
+	Entry point for `libro prepare-release`
 	"""
 
 	parser = argparse.ArgumentParser(description="Calculate work word count, insert release date if not yet set, and update modified date and revision number.")

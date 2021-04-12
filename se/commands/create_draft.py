@@ -918,7 +918,7 @@ def _create_draft(args: Namespace):
 
 def create_draft() -> int:
 	"""
-	Entry point for `se create-draft`
+	Entry point for `libro create-draft`
 	"""
 
 	parser = argparse.ArgumentParser(description="Create a skeleton of a new Standard Ebook in the current directory.")
