@@ -1,3 +1,4 @@
+
 # About
 
 A collection of tools Libro.Org uses to produce its ebooks, including basic setup of ebooks, text processing, and build tools. 
@@ -5,6 +6,16 @@ A collection of tools Libro.Org uses to produce its ebooks, including basic setu
 Forked from [Standard Ebooks tools](https://github.com/standardebooks/tools).
 
 Installing this toolset using `pipx` makes the `libro` command line executable available. Its various commands are described below, or you can use `libro help` to list them.
+
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
+# Project status
+
+|          Feature          | Status |
+|:-------------------------:|--------|
+| adapt commands to Spanish |   WIP  |
+| Libro.Org skeleton        |  TO-DO |
+| shell completions         |  TO-DO |
 
 # Installation
 
