@@ -95,7 +95,7 @@ METADATA
 "m-005", "Non-canonical HathiTrust URL. HathiTrust URLs must look exactly like [url]https://catalog.hathitrust.org/Record/<BOOK-ID>[/]."
 "m-006", "Non-canonical Project Gutenberg URL. Project Gutenberg URLs must look exactly like [url]https://www.gutenberg.org/ebooks/<BOOK-ID>[/]."
 "m-007", "Non-canonical archive.org URL. Internet Archive URLs must look exactly like [url]https://archive.org/details/<BOOK-ID>[/]."
-"m-008", "[url]id.loc.gov[/] URL ending with illegal [path].html[/]."
+"m-008", "[url]id.loc.gov[/] URI ending with illegal [path].html[/]."
 "m-009", f"[xml]<meta property=\"se:url.vcs.github\">[/] value does not match expected: [url]{self.generated_github_repo_url}[/]."
 "m-010", "Invalid [xml]refines[/] property."
 "m-011", "Use HathiTrust record URLs, not page scan URLs, in metadata, imprint, and colophon. Record URLs look like: [url]https://catalog.hathitrust.org/Record/<RECORD-ID>[/]."
@@ -153,7 +153,7 @@ METADATA
 "m-063", "Cover image has not been built."
 "m-064", "SE ebook hyperlinked in long description but not italicized."
 "m-065", "Word count in metadata doesn’t match actual word count."
-"m-066", "[url]id.loc.gov[/] URL starting with illegal https."
+"m-066", "[url]id.loc.gov[/] URI starting with illegal https."
 "m-067", "Non-SE link in long description."
 
 SEMANTICS & CONTENT
@@ -659,7 +659,7 @@ def lint(self, skip_lint_ignore: bool) -> list:
 	if matches:
 		messages.append(LintMessage("c-022", "Illegal [css]rem[/] unit. Use [css]em[/] instead.", se.MESSAGE_TYPE_ERROR, local_css_path))
 
-	matches = regex.findall(r"font-size\s*:\s*[0-9\.]+(?![0-9\.]|em)", self.local_css)
+	matches = regex.findall(r"font-size\s*:\s*[0-9\.]+(?![0-9\.]|em|ex)", self.local_css)
 	if matches:
 		messages.append(LintMessage("c-023", "Illegal unit used to set [css]font-size[/]. Hint: Use [css]em[/] units.", se.MESSAGE_TYPE_ERROR, local_css_path))
 
@@ -885,10 +885,10 @@ def lint(self, skip_lint_ignore: bool) -> list:
 	messages = messages + _get_malformed_urls(self.metadata_xml, self.metadata_file_path)
 
 	if regex.search(r"https:\/\/id\.loc\.gov/", self.metadata_xml):
-		messages.append(LintMessage("m-066", "[url]id.loc.gov[/] URL starting with illegal https.", se.MESSAGE_TYPE_ERROR, self.metadata_file_path))
+		messages.append(LintMessage("m-066", "[url]id.loc.gov[/] URI starting with illegal https.", se.MESSAGE_TYPE_ERROR, self.metadata_file_path))
 
 	if regex.search(r"id\.loc\.gov/authorities/names/[^\.]+\.html", self.metadata_xml):
-		messages.append(LintMessage("m-008", "[url]id.loc.gov[/] URL ending with illegal [path].html[/].", se.MESSAGE_TYPE_ERROR, self.metadata_file_path))
+		messages.append(LintMessage("m-008", "[url]id.loc.gov[/] URI ending with illegal [path].html[/].", se.MESSAGE_TYPE_ERROR, self.metadata_file_path))
 
 	# Does the manifest match the generated manifest?
 	try:
