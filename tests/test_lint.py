@@ -7,15 +7,13 @@ import pytest
 from helpers import assemble_book, run, output_is_golden
 
 
-
-def test_lint(data_dir: Path, draft_dir: Path, work_dir: Path, capfd, update_golden,test_name='clean' ):
+@pytest.mark.parametrize("test_name", ["clean", "content", "s-058", "glossaries", "elements"])
+def test_lint(data_dir: Path, draft_dir: Path, work_dir: Path, capfd, test_name: str, update_golden: bool):
 	"""Run lint command on several books with different expected lint output:
 		clean   - No errors expected
 		content - Errors for a default content.opf
 	"""
-	print(f"{data_dir},{draft_dir},{work_dir}")
 	text_dir = data_dir / "lint" / test_name
-	print(text_dir)
 	book_dir = assemble_book(draft_dir, work_dir, text_dir)
 
 	result = run(f"libro lint --plain {book_dir}")
@@ -30,5 +28,4 @@ def test_lint(data_dir: Path, draft_dir: Path, work_dir: Path, capfd, update_gol
 
 	# Update golden output files if flag is set
 	golden_file = data_dir / "lint" / f"{test_name}-out.txt"
-	
 	assert output_is_golden(out, golden_file, update_golden)
