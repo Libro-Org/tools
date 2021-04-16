@@ -38,7 +38,7 @@ def main() -> None:
 
 	commands = get_commands()
 
-	parser = argparse.ArgumentParser(description="The entry point for the Standard Ebooks toolset.")
+	parser = argparse.ArgumentParser(description="The entry point for the Libro.Org toolset.")
 	parser.add_argument("-v", "--version", action="store_true", help="print version number and exit")
 	parser.add_argument("command", metavar="COMMAND", choices=commands, help="one of: " + " ".join(commands))
 	parser.add_argument("arguments", metavar="ARGS", nargs="*", help="arguments for the subcommand")

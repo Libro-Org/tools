@@ -779,7 +779,7 @@ def build(self, run_epubcheck: bool, build_kobo: bool, build_kindle: bool, outpu
 		cover_id = self.metadata_dom.xpath("//item[@properties=\"cover-image\"]/@id")[0].replace(".svg", ".jpg")
 		metadata_xml = regex.sub(r"(<metadata[^>]+?>)", f"\\1\n\t\t<meta content=\"{cover_id}\" name=\"cover\" />", metadata_xml)
 
-		# Add metadata to content.opf indicating this file is a Standard Ebooks compatibility build
+		# Add metadata to content.opf indicating this file is a Libro.Org compatibility build
 		metadata_xml = metadata_xml.replace("<dc:publisher", "<meta property=\"se:transform\">compatibility</meta>\n\t\t<dc:publisher")
 
 		# Add any new MathML images we generated to the manifest
