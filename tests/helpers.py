@@ -107,6 +107,7 @@ def output_is_golden(out: str, golden_file: Path, update_golden: bool) ->bool:
 
 	# Output of stdout should match expected output
 	with open(golden_file) as file:
+		print(out)
 		assert file.read() == out
 
 	return True
