@@ -648,10 +648,8 @@ def _create_draft(args: Namespace):
 		except Exception as ex:
 			raise se.InvalidEncodingException(f"Couldn’t determine text encoding of Project Gutenberg HTML file. Exception: {ex}")
 
-		# Try to guess the ebook language
-		pg_language = "en-US"
-		if "colour" in pg_ebook_html or "favour" in pg_ebook_html or "honour" in pg_ebook_html:
-			pg_language = "en-GB"
+		# TODO: Modify for different spanish code
+		pg_language = "es-ES"
 
 	# Create necessary directories
 	(repo_path / "images").mkdir(parents=True)
