@@ -10,7 +10,7 @@ from se.se_epub import SeEpub
 
 def reorder_endnotes() -> int:
 	"""
-	Entry point for `se reorder-endnotes`
+	Entry point for `libro reorder-endnotes`
 	"""
 
 	parser = argparse.ArgumentParser(description="Increment the specified endnote and all following endnotes by 1.")

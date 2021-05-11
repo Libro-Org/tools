@@ -16,7 +16,7 @@ NOVEL_MIN_WORD_COUNT = 40000
 
 def word_count() -> int:
 	"""
-	Entry point for `se word-count`
+	Entry point for `libro word-count`
 	"""
 
 	parser = argparse.ArgumentParser(description="Count the number of words in an XHTML file and optionally categorize by length. If multiple files are specified, show the total word count for all.")

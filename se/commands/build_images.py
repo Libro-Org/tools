@@ -15,7 +15,7 @@ from se.se_epub import SeEpub
 
 def build_images() -> int:
 	"""
-	Entry point for `se build-images`
+	Entry point for `libro build-images`
 	"""
 
 	parser = argparse.ArgumentParser(description="Build ebook covers and titlepages for a Standard Ebook source directory, and place the output in DIRECTORY/src/epub/images/.")

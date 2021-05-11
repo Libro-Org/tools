@@ -12,7 +12,7 @@ import se
 
 def find_mismatched_diacritics() -> int:
 	"""
-	Entry point for `se find-mismatched-diacritics`
+	Entry point for `libro find-mismatched-diacritics`
 	"""
 
 	parser = argparse.ArgumentParser(description="Find words with mismatched diacritics in a set of XHTML files. For example, `cafe` in one file and `café` in another.")

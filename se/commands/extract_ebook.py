@@ -49,7 +49,7 @@ def _is_mobi(file_bytes: bytes) -> bool:
 
 def extract_ebook() -> int:
 	"""
-	Entry point for `se extract-ebook`
+	Entry point for `libro extract-ebook`
 	"""
 
 	parser = argparse.ArgumentParser(description="Extract an epub, mobi, or azw3 ebook into ./FILENAME.extracted/ or a target directory.")

@@ -10,7 +10,7 @@ from se.se_epub import SeEpub
 
 def recompose_epub() -> int:
 	"""
-	Entry point for `se recompose-epub`
+	Entry point for `libro recompose-epub`
 	"""
 
 	parser = argparse.ArgumentParser(description="Recompose a Standard Ebooks source directory into a single (X?)HTML5 file, and print to standard output.")

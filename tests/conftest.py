@@ -34,8 +34,8 @@ def draft_dir(tmp_path_factory, data_dir: Path, book_name: str, update_draft: bo
 		old_wd = os.getcwd()
 		os.chdir(base_dir)
 		try:
-			must_run("se create-draft -a 'Jane Austen' -t 'Unknown Novel'")
-			must_run(f"se build-images {src_dir}")
+			must_run("libro create-draft -a 'Jane Austen' -t 'Unknown Novel'")
+			must_run(f"libro build-images {src_dir}")
 		finally:
 			os.chdir(old_wd)
 	dest_dir = tmp_path_factory.getbasetemp() / "draft-book"

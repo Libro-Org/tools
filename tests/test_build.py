@@ -1,5 +1,5 @@
 """
-Tests for "se build" command.
+Tests for "libro build" command.
 """
 
 from pathlib import Path
@@ -11,7 +11,7 @@ def test_build_clean(draft_dir: Path, work_dir: Path, data_dir: Path, book_name:
 	"""
 	text_dir = data_dir / "build" / "text"
 	book_dir = assemble_book(draft_dir, work_dir, text_dir)
-	must_run(f"se build --kindle --kobo --check {book_dir}")
+	must_run(f"libro build --kindle --kobo --check {book_dir}")
 
 	for suffix in [".epub", "_advanced.epub", ".azw3", ".kepub.epub"]:
 		file = work_dir / (book_name + suffix)

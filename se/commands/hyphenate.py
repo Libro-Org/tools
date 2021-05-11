@@ -12,7 +12,7 @@ import se.typography
 
 def hyphenate() -> int:
 	"""
-	Entry point for `se hyphenate`
+	Entry point for `libro hyphenate`
 	"""
 
 	parser = argparse.ArgumentParser(description="Insert soft hyphens at syllable breaks in XHTML files.")

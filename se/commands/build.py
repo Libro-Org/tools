@@ -12,7 +12,7 @@ from se.se_epub import SeEpub
 
 def build() -> int:
 	"""
-	Entry point for `se build`
+	Entry point for `libro build`
 	"""
 
 	parser = argparse.ArgumentParser(description="Build compatible .epub and advanced .epub ebooks from a Standard Ebook source directory. Output is placed in the current directory, or the target directory with --output-dir.")

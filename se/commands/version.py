@@ -12,7 +12,7 @@ import se
 
 def version() -> int:
 	"""
-	Entry point for `se version`
+	Entry point for `libro version`
 	"""
 
 	# Is distribution an editable install?
@@ -22,7 +22,7 @@ def version() -> int:
 
 	dist_is_editable = False
 	for path_item in sys.path:
-		egg_link = os.path.join(path_item, distributions['standardebooks'].project_name + '.egg-link')
+		egg_link = os.path.join(path_item, distributions['libro-org'].project_name + '.egg-link')
 		if os.path.isfile(egg_link):
 			dist_is_editable = True
 

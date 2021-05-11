@@ -7,7 +7,7 @@ from se.main import get_commands
 
 def se_help() -> int:
 	"""
-	Entry point for `se help`
+	Entry point for `libro help`
 
 	help() is a built-in function so this function is called se_help().
 	"""

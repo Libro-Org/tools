@@ -13,7 +13,7 @@ import se.formatting
 
 def print_title() -> int:
 	"""
-	Entry point for `se print-title`
+	Entry point for `libro print-title`
 	"""
 
 	parser = argparse.ArgumentParser(description="Print the expected value for an XHTML file’s <title> element.")

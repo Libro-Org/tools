@@ -1,8 +1,21 @@
+
 # About
 
-A collection of tools Standard Ebooks uses to produce its ebooks, including basic setup of ebooks, text processing, and build tools.
+A collection of tools Libro.Org uses to produce its ebooks, including basic setup of ebooks, text processing, and build tools. 
 
-Installing this toolset using `pipx` makes the `se` command line executable available. Its various commands are described below, or you can use `se help` to list them.
+Forked from [Standard Ebooks tools](https://github.com/standardebooks/tools).
+
+Installing this toolset using `pipx` makes the `libro` command line executable available. Its various commands are described below, or you can use `libro help` to list them.
+
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
+# Project status
+
+|          Feature          | Status |
+|:-------------------------:|--------|
+| adapt commands to Spanish |   WIP  |
+| Libro.Org skeleton        |  TO-DO |
+| shell completions         |  TO-DO |
 
 # Installation
 
@@ -21,7 +34,7 @@ python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 
 # Install the toolset.
-pipx install standardebooks
+pipx install libro-org
 ```
 
 ### Optional: Install shell completions
@@ -48,7 +61,7 @@ python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 
 # Install the toolset.
-pipx install standardebooks
+pipx install libro-org
 ```
 
 ### Optional: Install shell completions
@@ -83,7 +96,7 @@ These instructions were tested on macOS 10.12 to 10.16, on Intel macs.
 	sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
 	# Install the toolset.
-	pipx install standardebooks
+	pipx install libro-org
 	
 	# Optional: Bash users who have set up bash-completion via brew can install tab completion.
 	ln -s $HOME/.local/pipx/venvs/standardebooks/lib/python3.*/site-packages/se/completions/bash/se $(brew --prefix)/etc/bash_completion.d/se
@@ -120,25 +133,25 @@ Optionally, replace `vim--` with `vim--gtk3` to include gvim for its Unicode edi
 
 	```shell
 	# Install the toolset.
-	pipx install standardebooks
+	pipx install libro-org
 	```
 
 ## Installation for developers
 
 If you want to work on the toolset source, it’s helpful to tell `pipx` to install the package in “editable” mode. This will allow you to edit the source of the package live and see changes immediately, without having to uninstall and re-install the package.
 
-To do that, follow the general installation instructions above; but instead of doing `pipx install standardebooks`, do the following:
+To do that, follow the general installation instructions above; but instead of doing `pipx install libro-org`, do the following:
 
 ```shell
-git clone https://github.com/standardebooks/tools.git
+git clone https://github.com/Libro-Org/tools.git
 pipx install --editable ./tools
 ```
 
-Now the `se` binary is in your path, and any edits you make to source files in the `tools/` directory are immediately reflected when executing the binary.
+Now the `libro` binary is in your path, and any edits you make to source files in the `tools/` directory are immediately reflected when executing the binary.
 
 ### Running commands on the entire corpus
 
-As a developer, it’s often useful to run an `se` command like `se lint` or `se build` on the entire corpus for testing purposes. This can be very time-consuming in a regular invocation (like `se lint /path/to/ebook/repos/*`), because each argument is processed sequentially. Instead of waiting for a single invocation to process all of its arguments sequentially, use [GNU Parallel](https://www.gnu.org/software/parallel/) to start multiple invocations in parallel, with each one processing a single argument. For example:
+As a developer, it’s often useful to run an `libro` command like `libro lint` or `libro build` on the entire corpus for testing purposes. This can be very time-consuming in a regular invocation (like `libro lint /path/to/ebook/repos/*`), because each argument is processed sequentially. Instead of waiting for a single invocation to process all of its arguments sequentially, use [GNU Parallel](https://www.gnu.org/software/parallel/) to start multiple invocations in parallel, with each one processing a single argument. For example:
 
 ```shell
 # Slow, each argument is processed in sequence
@@ -150,21 +163,21 @@ export COLUMNS; parallel --keep-order se lint ::: /path/to/ebook/repos/*
 
 The toolset tries to detect when it’s being invoked from `parallel`, and it adjusts its output to accomodate.
 
-We export `COLUMNS` because `se lint` needs to know the width of the terminal so that it can format its tabular output correctly. We pass the `--keep-order` flag to output results in the order we passed them in, which is useful if comparing the results of multiple runs.
+We export `COLUMNS` because `libro lint` needs to know the width of the terminal so that it can format its tabular output correctly. We pass the `--keep-order` flag to output results in the order we passed them in, which is useful if comparing the results of multiple runs.
 
 ### Linting with `pylint` and `mypy`
 
-Before we can use `pylint` or `mypy` on the toolset source, we have to inject them into the venv `pipx` created for the `standardebooks` package:
+Before we can use `pylint` or `mypy` on the toolset source, we have to inject them into the venv `pipx` created for the `libro-org` package:
 
 ```shell
-pipx inject standardebooks pylint mypy
+pipx inject libro-org pylint mypy
 ```
 
-Then make sure to call the `pylint` and `mypy` binaries that `pipx` installed in the `standardebooks` venv, *not* any other globally-installed binaries:
+Then make sure to call the `pylint` and `mypy` binaries that `pipx` installed in the `libro-org` venv, *not* any other globally-installed binaries:
 
 ```shell
 cd /path/to/tools/repo
-$HOME/.local/pipx/venvs/standardebooks/bin/pylint se
+$HOME/.local/pipx/venvs/libro-org/bin/pylint se
 ```
 
 ### Testing with `pytest`
@@ -172,14 +185,14 @@ $HOME/.local/pipx/venvs/standardebooks/bin/pylint se
 Similar to `pylint`, the `pytest` command can be injected into the venv `pipx` created for the `standardebooks` package:
 
 ```shell
-pipx inject standardebooks pytest
+pipx inject libro-org pytest
 ```
 
 The tests are executed by calling `pytest` from the top level or your tools repo:
 
 ```shell
 cd /path/to/tools/repo
-$HOME/.local/pipx/venvs/standardebooks/bin/pytest
+$HOME/.local/pipx/venvs/libro-org/bin/pytest
 ```
 
 #### Adding tests
@@ -195,7 +208,7 @@ The usual test development process is:
 3. Run `pytest --save-golden-files` and then diff the data directory to ensure that the `out` files are as expected.
 4. Commit changes (including new `out` contents).
 
-Another custom test flag `--save-new-draft` is also available. This flag is used to update the book skeleton, generated by the `se create-draft` command, that is used as input for the other tests. Whenever the draft contents change (e.g. edits to the `core.css` file) the `tests/data/draft` files should be updated by calling `pytest --save-new-draft`.
+Another custom test flag `--save-new-draft` is also available. This flag is used to update the book skeleton, generated by the `libro create-draft` command, that is used as input for the other tests. Whenever the draft contents change (e.g. edits to the `core.css` file) the `tests/data/draft` files should be updated by calling `pytest --save-new-draft`.
 
 ### Code style
 
@@ -217,135 +230,135 @@ We need volunteers to take the lead on the following goals:
 
 # Tool descriptions
 
--	### `se british2american`
+-	### `libro british2american`
 
 	Try to convert British quote style to American quote style in DIRECTORY/src/epub/text/.
 
-	Quotes must already be typogrified using the `se typogrify` tool.
+	Quotes must already be typogrified using the `libro typogrify` tool.
 
 	This script isn’t perfect; proofreading is required, especially near closing quotes near to em-dashes.
 
--	### `se build`
+-	### `libro build`
 
 	Build an ebook from a Standard Ebook source directory.
 
--	### `se build-images`
+-	### `libro build-images`
 
 	Build ebook cover and titlepage images in a Standard Ebook source directory and place the output in DIRECTORY/src/epub/images/.
 
--	### `se clean`
+-	### `libro clean`
 
 	Prettify and canonicalize individual XHTML, SVG, or CSS files, or all XHTML, SVG, or CSS files in a source directory. Note that this only prettifies the source code; it doesn’t perform typography changes.
 
--	### `se compare-versions`
+-	### `libro compare-versions`
 
 	Use Firefox to render and compare XHTML files in an ebook repository. Run on a dirty repository to visually compare the repository’s dirty state with its clean state. If a file renders differently, place screenshots of the new, original, and diff (if available) renderings in the current working directory. A file called diff.html is created to allow for side-by-side comparisons of original and new files.
 
--	### `se create-draft`
+-	### `libro create-draft`
 
 	Create a skeleton of a new Standard Ebook.
 
--	### `se dec2roman`
+-	### `libro dec2roman`
 
 	Convert a decimal number to a Roman numeral.
 
--	### `se extract-ebook`
+-	### `libro extract-ebook`
 
 	Extract an EPUB, MOBI, or AZW3 ebook into ./FILENAME.extracted/ or a target directory.
 
--	### `se find-mismatched-diacritics`
+-	### `libro find-mismatched-diacritics`
 
 	Find words with mismatched diacritics in Standard Ebook source directories. For example, `cafe` in one file and `café` in another.
 
--	### `se help`
+-	### `libro help`
 
 	List available SE commands.
 
--	### `se hyphenate`
+-	### `libro hyphenate`
 
 	Insert soft hyphens at syllable breaks in an XHTML file.
 
--	### `se interactive-sr`
+-	### `libro interactive-sr`
 
 	Use Vim to perform an interactive search and replace on a list of files. Use y/n/a to confirm (y) or reject (n) a replacement, or to replace (a)ll.
 
--	### `se lint`
+-	### `libro lint`
 
 	Check for various Standard Ebooks style errors.
 
--	### `se make-url-safe`
+-	### `libro make-url-safe`
 
 	Make a string URL-safe.
 
--	### `se modernize-spelling`
+-	### `libro modernize-spelling`
 
 	Modernize spelling of some archaic words, and replace words that may be archaically compounded with a dash to a more modern spelling. For example, replace `ash-tray` with `ashtray`.
 
--	### `se prepare-release`
+-	### `libro prepare-release`
 
 	Calculate work word count, insert release date if not yet set, and update modified date and revision number.
 
--	### `se print-manifest`
+-	### `libro print-manifest`
 
 	Print the <manifest> element for the given Standard Ebooks source directory to standard output, for use in that directory’s content.opf.
 
--	### `se print-spine`
+-	### `libro print-spine`
 
 	Print the <spine> element for the given Standard Ebooks source directory to standard output, for use in that directory’s content.opf.
 
--	### `se print-title`
+-	### `libro print-title`
 
 	Print the expected value for an XHTML file’s `<title>` element.
 
--	### `se print-toc`
+-	### `libro print-toc`
 
 	Build a table of contents for an SE source directory and print to stdout.
 
--	### `se recompose-epub`
+-	### `libro recompose-epub`
 
 	Recompose a Standard Ebooks source directory into a single HTML5 file, and print to standard output.
 
--	### `se renumber-endnotes`
+-	### `libro renumber-endnotes`
 
 	Renumber all endnotes and noterefs sequentially from the beginning.
 
--	### `se reorder-endnotes`
+-	### `libro reorder-endnotes`
 
 	Increment the specified endnote and all following endnotes by 1.
 
--	### `se roman2dec`
+-	### `libro roman2dec`
 
 	Convert a Roman numeral to a decimal number.
 
--	### `se semanticate`
+-	### `libro semanticate`
 
 	Apply some scriptable semantics rules from the Standard Ebooks semantics manual to a Standard Ebook source directory.
 
--	### `se split-file`
+-	### `libro split-file`
 
 	Split an XHTML file into many files at all instances of `<!--se:split-->`, and include a header template for each file.
 
--	### `se titlecase`
+-	### `libro titlecase`
 
 	Convert a string to titlecase.
 
--	### `se typogrify`
+-	### `libro typogrify`
 
 	Apply some scriptable typography rules from the Standard Ebooks typography manual to a Standard Ebook source directory.
 
--	### `se unicode-names`
+-	### `libro unicode-names`
 
 	Display Unicode code points, descriptions, and links to more details for each character in a string. Useful for differentiating between different flavors of spaces, dashes, and invisible characters like word joiners.
 
--	### `se version`
+-	### `libro version`
 
 	Print the version number and exit.
 
--	### `se word-count`
+-	### `libro word-count`
 
 	Count the number of words in an HTML file and optionally categorize by length.
 
--	### `se xpath`
+-	### `libro xpath`
 
 	Print the results of an xpath expression evaluated against a set of XHTML files. The default namespace is removed.
 

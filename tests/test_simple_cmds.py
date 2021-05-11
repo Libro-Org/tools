@@ -22,18 +22,18 @@ SIMPLE_CMDS = [
 @pytest.mark.parametrize("cmd_name, cmd_args, cmd_out", SIMPLE_CMDS)
 def test_simple_cmds(cmd_name: str, cmd_args: str, cmd_out: str, capfd):
 	"""Execute command and check output"""
-	must_run(f"se {cmd_name} {cmd_args}")
+	must_run(f"libro {cmd_name} {cmd_args}")
 	out, _ = capfd.readouterr()
 	assert cmd_out == out.rstrip()
 
 def test_version(capfd):
 	"""Verify that the version command returns the version"""
-	must_run("se version")
+	must_run("libro version")
 	out, _ = capfd.readouterr()
 	assert out.startswith(se.VERSION)
 
 def test_help(capfd):
 	"""Verify that the help command returns without an error"""
-	must_run("se help")
+	must_run("libro help")
 	out, _ = capfd.readouterr()
 	assert out.splitlines()[0] == "The following commands are available:"

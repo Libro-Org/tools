@@ -10,7 +10,7 @@ from se.se_epub import SeEpub
 
 def print_toc() -> int:
 	"""
-	Entry point for `se print-toc`
+	Entry point for `libro print-toc`
 
 	The meat of this function is broken out into the generate_toc.py module for readability
 	and maintainability.

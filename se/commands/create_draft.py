@@ -545,7 +545,7 @@ def _create_draft(args: Namespace):
 
 	title_string = title
 	if authors and authors[0]["name"].lower() != "anonymous":
-		title_string += ", by " + _generate_contributor_string(authors, False)
+		title_string += ", por " + _generate_contributor_string(authors, False)
 
 	identifier = ""
 	for author in authors:
@@ -556,7 +556,7 @@ def _create_draft(args: Namespace):
 	sorted_title = regex.sub(r"^(A|An|The) (.+)$", "\\2, \\1", title)
 
 	if translators:
-		title_string = title_string + ". Translated by " + _generate_contributor_string(translators, False)
+		title_string = title_string + ". Traducido por " + _generate_contributor_string(translators, False)
 
 		identifier = identifier + "/"
 
@@ -566,7 +566,7 @@ def _create_draft(args: Namespace):
 		identifier = identifier.rstrip("_")
 
 	if illustrators:
-		title_string = title_string + ". Illustrated by " + _generate_contributor_string(illustrators, False)
+		title_string = title_string + ". Ilustrado por " + _generate_contributor_string(illustrators, False)
 
 		identifier = identifier + "/"
 
@@ -648,10 +648,8 @@ def _create_draft(args: Namespace):
 		except Exception as ex:
 			raise se.InvalidEncodingException(f"Couldn’t determine text encoding of Project Gutenberg HTML file. Exception: {ex}")
 
-		# Try to guess the ebook language
-		pg_language = "en-US"
-		if "colour" in pg_ebook_html or "favour" in pg_ebook_html or "honour" in pg_ebook_html:
-			pg_language = "en-GB"
+		# TODO: Modify for different spanish code
+		pg_language = "es-ES"
 
 	# Create necessary directories
 	(repo_path / "images").mkdir(parents=True)
@@ -815,7 +813,7 @@ def _create_draft(args: Namespace):
 
 				producers_xhtml = producers_xhtml + "<br/>"
 
-				colophon_xhtml = colophon_xhtml.replace("<b class=\"name\">TRANSCRIBER_1</b>, <b class=\"name\">TRANSCRIBER_2</b>, and <a href=\"https://www.pgdp.net\">The Online Distributed Proofreading Team</a><br/>", producers_xhtml)
+				colophon_xhtml = colophon_xhtml.replace("<b class=\"name\">TRANSCRIBER_1</b>, <b class=\"name\">TRANSCRIBER_2</b>, y <a href=\"https://www.pgdp.net\">The Online Distributed Proofreading Team</a><br/>", producers_xhtml)
 
 		file.seek(0)
 		file.write(colophon_xhtml)
@@ -918,7 +916,7 @@ def _create_draft(args: Namespace):
 
 def create_draft() -> int:
 	"""
-	Entry point for `se create-draft`
+	Entry point for `libro create-draft`
 	"""
 
 	parser = argparse.ArgumentParser(description="Create a skeleton of a new Standard Ebook in the current directory.")

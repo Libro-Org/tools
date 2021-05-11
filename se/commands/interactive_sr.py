@@ -11,7 +11,7 @@ import se
 
 def interactive_sr() -> int:
 	"""
-	Entry point for `se interactive-sr`
+	Entry point for `libro interactive-sr`
 	"""
 
 	parser = argparse.ArgumentParser(description="Use Vim to perform an interactive search and replace on a list of files. Use y/n/a to confirm (y) or reject (n) a replacement, or to replace (a)ll.")

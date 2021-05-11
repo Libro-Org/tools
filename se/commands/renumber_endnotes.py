@@ -10,7 +10,7 @@ from se.se_epub import SeEpub
 
 def renumber_endnotes() -> int:
 	"""
-	Entry point for `se renumber-endnotes`
+	Entry point for `libro renumber-endnotes`
 	"""
 
 	parser = argparse.ArgumentParser(description="Renumber all endnotes and noterefs sequentially from the beginning.")

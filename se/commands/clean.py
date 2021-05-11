@@ -12,7 +12,7 @@ import se.formatting
 
 def clean() -> int:
 	"""
-	Entry point for `se clean`
+	Entry point for `libro clean`
 	"""
 
 	parser = argparse.ArgumentParser(description="Prettify and canonicalize individual XHTML, SVG, or CSS files, or all XHTML, SVG, or CSS files in a source directory. Note that this only prettifies the source code; it doesn’t perform typography changes.")

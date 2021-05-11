@@ -12,7 +12,7 @@ import se.easy_xml
 
 def xpath() -> int:
 	"""
-	Entry point for `se xpath`
+	Entry point for `libro xpath`
 	"""
 
 	parser = argparse.ArgumentParser(description="Print the results of an xpath expression evaluated against a set of XHTML files. The default namespace is removed.")
