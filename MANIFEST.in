@@ -1,2 +1,1 @@
 recursive-include se/data *
-recursive-include se/completions *

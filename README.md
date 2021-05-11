@@ -14,7 +14,7 @@ Installing this toolset using `pipx` makes the `libro` command line executable a
 |          Feature          | Status |
 |:-------------------------:|--------|
 | adapt commands to Spanish |   WIP  |
-| Libro.Org skeleton        |  TO-DO |
+| Libro.Org skeleton        |   WIP  |
 | shell completions         |  TO-DO |
 
 # Installation
@@ -229,15 +229,6 @@ We need volunteers to take the lead on the following goals:
 - Currently we install the whole Calibre package, which is very big, but it’s only used to convert epub to azw3. Can we inline Calibre’s azw3 conversion code in the `./vendor/` directory, to avoid having to install the entire package as a big dependency?
 
 # Tool descriptions
-
--	### `libro british2american`
-
-	Try to convert British quote style to American quote style in DIRECTORY/src/epub/text/.
-
-	Quotes must already be typogrified using the `libro typogrify` tool.
-
-	This script isn’t perfect; proofreading is required, especially near closing quotes near to em-dashes.
-
 -	### `libro build`
 
 	Build an ebook from a Standard Ebook source directory.
@@ -362,9 +353,9 @@ We need volunteers to take the lead on the following goals:
 
 	Print the results of an xpath expression evaluated against a set of XHTML files. The default namespace is removed.
 
-# What a Standard Ebooks source directory looks like
+# What a Libro.Org source directory looks like
 
-Many of these tools act on Standard Ebooks source directories. Such directories have a consistent minimal structure:
+Many of these tools act on Libro.Org source directories. Such directories have a consistent minimal structure:
 
 	.
 	|-images/
