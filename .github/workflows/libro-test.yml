@@ -1,35 +1,34 @@
-name: Libro.Org toolset tests
+name: Libro.org toolset tests
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-18.04
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python 3.6
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.6
-    - name: Install Ubuntu packages
-      run: |
-        sudo apt update
-        sudo apt install calibre default-jre git python3-dev python3-pip python3-venv
-    - name: Install pipx
-      run: |
-        python3 -m pip install pipx
-        echo "PIPX_HOME=$HOME/pipx" >> $GITHUB_ENV
-        echo "PIPX_BIN_DIR=$HOME/pipx/bin" >> $GITHUB_ENV
-        echo "$HOME/pipx/bin" >> $GITHUB_PATH
-    - name: Install pipx packages
-      run: |
-        pipx install .
-        pipx inject libro-org pylint==2.6.0 pytest==6.1.2 mypy==0.790
-    - name: Check type annotations with mypy
-      run: $PIPX_HOME/venvs/libro-org/bin/mypy
-    - name: Check code with pylint
-      run: $PIPX_HOME/venvs/libro-org/bin/pylint tests/*.py se
-    - name: Test with pytest
-      run: $PIPX_HOME/venvs/libro-org/bin/pytest
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.6
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.6
+      - name: Install Ubuntu packages
+        run: |
+          sudo apt update
+          sudo apt install calibre default-jre git python3-dev python3-pip python3-venv
+      - name: Install pipx
+        run: |
+          python3 -m pip install pipx
+          echo "PIPX_HOME=$HOME/pipx" >> $GITHUB_ENV
+          echo "PIPX_BIN_DIR=$HOME/pipx/bin" >> $GITHUB_ENV
+          echo "$HOME/pipx/bin" >> $GITHUB_PATH
+      - name: Install pipx packages
+        run: |
+          pipx install .
+          pipx inject libro-org pylint==2.6.0 pytest==6.1.2 mypy==0.790
+      - name: Check type annotations with mypy
+        run: $PIPX_HOME/venvs/libro-org/bin/mypy
+      - name: Check code with pylint
+        run: $PIPX_HOME/venvs/libro-org/bin/pylint tests/*.py se
+      - name: Test with pytest
+        run: $PIPX_HOME/venvs/libro-org/bin/pytest

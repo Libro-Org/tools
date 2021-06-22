@@ -41,11 +41,11 @@ def _get_version() -> str:
 setup(
 	version=_get_version(),
 	name="libro_org",
-	description="The toolset used to produce Libro.Org epub ebooks.",
+	description="The toolset used to produce Libro.org epub ebooks.",
 	long_description=_get_file_contents(Path(__file__).resolve().parent / "README.md"),
 	long_description_content_type="text/markdown",
 	url="https://libro.org",
-	author="Libro.Org",
+	author="Libro.org",
 	author_email="admin@libro.org",
 	classifiers=[
 		"Development Status :: 3 - Alpha",

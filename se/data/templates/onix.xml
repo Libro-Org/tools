@@ -2,7 +2,7 @@
 <ONIXMessage xmlns="http://ns.editeur.org/onix/3.0/reference" release="3.0">
 	<Header>
 		<Sender>
-			<SenderName>Standard Ebooks</SenderName>
+			<SenderName>Libro.org</SenderName>
 		</Sender>
 		<SentDateTime>2014-05-25T00:00:00Z</SentDateTime>
 	</Header>

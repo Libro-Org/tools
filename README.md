@@ -1,7 +1,6 @@
-
 # About
 
-A collection of tools Libro.Org uses to produce its ebooks, including basic setup of ebooks, text processing, and build tools. 
+A collection of tools Libro.org uses to produce its ebooks, including basic setup of ebooks, text processing, and build tools.
 
 Forked from [Standard Ebooks tools](https://github.com/standardebooks/tools).
 
@@ -12,10 +11,10 @@ Installing this toolset using `pipx` makes the `libro` command line executable a
 # Project status
 
 |          Feature          | Status |
-|:-------------------------:|--------|
-| adapt commands to Spanish |   WIP  |
-| Libro.Org skeleton        |   WIP  |
-| shell completions         |  TO-DO |
+| :-----------------------: | ------ |
+| adapt commands to Spanish | WIP    |
+|    Libro.org skeleton     | WIP    |
+|     shell completions     | TO-DO  |
 
 # Installation
 
@@ -83,58 +82,60 @@ These instructions were tested on macOS 10.12 to 10.16, on Intel macs.
 
 1. Install the [Homebrew package manager](https://brew.sh). Or, if you already have it installed, make sure it’s up to date:
 
-	```shell
-	brew update
-	```
+   ```shell
+   brew update
+   ```
 
 2. Install dependencies:
 
-	```shell
-	# Install some pre-flight dependencies.
-	brew install cairo calibre git openjdk pipx python
-	pipx ensurepath
-	sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+   ```shell
+   # Install some pre-flight dependencies.
+   brew install cairo calibre git openjdk pipx python
+   pipx ensurepath
+   sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
-	# Install the toolset.
-	pipx install libro-org
-	
-	# Optional: Bash users who have set up bash-completion via brew can install tab completion.
-	ln -s $HOME/.local/pipx/venvs/standardebooks/lib/python3.*/site-packages/se/completions/bash/se $(brew --prefix)/etc/bash_completion.d/se
+   # Install the toolset.
+   pipx install libro-org
 
-	# Optional: Fish users can install tab completion.
-	ln -s $HOME/.local/pipx/venvs/standardebooks/lib/python3.*/site-packages/se/completions/fish/se $HOME/.config/fish/completions/se.fish
-	```
+   # Optional: Bash users who have set up bash-completion via brew can install tab completion.
+   ln -s $HOME/.local/pipx/venvs/standardebooks/lib/python3.*/site-packages/se/completions/bash/se $(brew --prefix)/etc/bash_completion.d/se
+
+   # Optional: Fish users can install tab completion.
+   ln -s $HOME/.local/pipx/venvs/standardebooks/lib/python3.*/site-packages/se/completions/fish/se $HOME/.config/fish/completions/se.fish
+   ```
+
 ## OpenBSD 6.6 Users
 
 These instructions were tested on OpenBSD 6.6, but may also work on the 6.5 release as well.
 
-1. Create a text file to feed into ```pkg_add``` called `~/standard-ebooks-packages`. It should contain the following:
+1.  Create a text file to feed into `pkg_add` called `~/standard-ebooks-packages`. It should contain the following:
 
-	```shell
-	py3-pip--
-	py3-virtualenv--
-	py3-gitdb--
-	jdk--%11
-	calibre--
-	git--
-	vim--
-	```
-Optionally, replace `vim--` with `vim--gtk3` to include gvim for its Unicode editing features.
+        ```shell
+        py3-pip--
+        py3-virtualenv--
+        py3-gitdb--
+        jdk--%11
+        calibre--
+        git--
+        vim--
+        ```
 
-2. Install dependencies using ```doas pkg_add -ivl ~/standard-ebooks-packages```. Follow linking instructions provided by ```pkg_add``` to save keystrokes, unless you want to have multiple python versions and pip versions. In my case, I ran ```doas ln -sf /usr/local/bin/pip3.7 /usr/local/bin/pip```.
+    Optionally, replace `vim--` with `vim--gtk3` to include gvim for its Unicode editing features.
 
-3. Add ```~/.local/bin``` to your path.
+2.  Install dependencies using `doas pkg_add -ivl ~/standard-ebooks-packages`. Follow linking instructions provided by `pkg_add` to save keystrokes, unless you want to have multiple python versions and pip versions. In my case, I ran `doas ln -sf /usr/local/bin/pip3.7 /usr/local/bin/pip`.
 
-4. Run ```pip install --user pipx```
+3.  Add `~/.local/bin` to your path.
 
-5. If you’re using ```ksh``` from base and have already added ```~/.local/bin```, you can skip ```pipx ensurepath``` because this step is for ```bash``` users.
+4.  Run `pip install --user pipx`
 
-6. The rest of the process is similar to that used on other platforms:
+5.  If you’re using `ksh` from base and have already added `~/.local/bin`, you can skip `pipx ensurepath` because this step is for `bash` users.
 
-	```shell
-	# Install the toolset.
-	pipx install libro-org
-	```
+6.  The rest of the process is similar to that used on other platforms:
+
+    ```shell
+    # Install the toolset.
+    pipx install libro-org
+    ```
 
 ## Installation for developers
 
@@ -173,7 +174,7 @@ Before we can use `pylint` or `mypy` on the toolset source, we have to inject th
 pipx inject libro-org pylint mypy
 ```
 
-Then make sure to call the `pylint` and `mypy` binaries that `pipx` installed in the `libro-org` venv, *not* any other globally-installed binaries:
+Then make sure to call the `pylint` and `mypy` binaries that `pipx` installed in the `libro-org` venv, _not_ any other globally-installed binaries:
 
 ```shell
 cd /path/to/tools/repo
@@ -222,168 +223,169 @@ We need volunteers to take the lead on the following goals:
 
 - Add more test cases to the test framework.
 
-- Figure out if it’s possible to install Bash/ZSH completions using setup.py, *without* root; this may not be possible?
+- Figure out if it’s possible to install Bash/ZSH completions using setup.py, _without_ root; this may not be possible?
 
 - Writing installation instructions for Bash and ZSH completions for MacOS.
 
 - Currently we install the whole Calibre package, which is very big, but it’s only used to convert epub to azw3. Can we inline Calibre’s azw3 conversion code in the `./vendor/` directory, to avoid having to install the entire package as a big dependency?
 
 # Tool descriptions
--	### `libro build`
 
-	Build an ebook from a Standard Ebook source directory.
+- ### `libro build`
 
--	### `libro build-images`
+  Build an ebook from a Standard Ebook source directory.
 
-	Build ebook cover and titlepage images in a Standard Ebook source directory and place the output in DIRECTORY/src/epub/images/.
+- ### `libro build-images`
 
--	### `libro clean`
+  Build ebook cover and titlepage images in a Standard Ebook source directory and place the output in DIRECTORY/src/epub/images/.
 
-	Prettify and canonicalize individual XHTML, SVG, or CSS files, or all XHTML, SVG, or CSS files in a source directory. Note that this only prettifies the source code; it doesn’t perform typography changes.
+- ### `libro clean`
 
--	### `libro compare-versions`
+  Prettify and canonicalize individual XHTML, SVG, or CSS files, or all XHTML, SVG, or CSS files in a source directory. Note that this only prettifies the source code; it doesn’t perform typography changes.
 
-	Use Firefox to render and compare XHTML files in an ebook repository. Run on a dirty repository to visually compare the repository’s dirty state with its clean state. If a file renders differently, place screenshots of the new, original, and diff (if available) renderings in the current working directory. A file called diff.html is created to allow for side-by-side comparisons of original and new files.
+- ### `libro compare-versions`
 
--	### `libro create-draft`
+  Use Firefox to render and compare XHTML files in an ebook repository. Run on a dirty repository to visually compare the repository’s dirty state with its clean state. If a file renders differently, place screenshots of the new, original, and diff (if available) renderings in the current working directory. A file called diff.html is created to allow for side-by-side comparisons of original and new files.
 
-	Create a skeleton of a new Standard Ebook.
+- ### `libro create-draft`
 
--	### `libro dec2roman`
+  Create a skeleton of a new Standard Ebook.
 
-	Convert a decimal number to a Roman numeral.
+- ### `libro dec2roman`
 
--	### `libro extract-ebook`
+  Convert a decimal number to a Roman numeral.
 
-	Extract an EPUB, MOBI, or AZW3 ebook into ./FILENAME.extracted/ or a target directory.
+- ### `libro extract-ebook`
 
--	### `libro find-mismatched-diacritics`
+  Extract an EPUB, MOBI, or AZW3 ebook into ./FILENAME.extracted/ or a target directory.
 
-	Find words with mismatched diacritics in Standard Ebook source directories. For example, `cafe` in one file and `café` in another.
+- ### `libro find-mismatched-diacritics`
 
--	### `libro help`
+  Find words with mismatched diacritics in Standard Ebook source directories. For example, `cafe` in one file and `café` in another.
 
-	List available SE commands.
+- ### `libro help`
 
--	### `libro hyphenate`
+  List available SE commands.
 
-	Insert soft hyphens at syllable breaks in an XHTML file.
+- ### `libro hyphenate`
 
--	### `libro interactive-sr`
+  Insert soft hyphens at syllable breaks in an XHTML file.
 
-	Use Vim to perform an interactive search and replace on a list of files. Use y/n/a to confirm (y) or reject (n) a replacement, or to replace (a)ll.
+- ### `libro interactive-sr`
 
--	### `libro lint`
+  Use Vim to perform an interactive search and replace on a list of files. Use y/n/a to confirm (y) or reject (n) a replacement, or to replace (a)ll.
 
-	Check for various Standard Ebooks style errors.
+- ### `libro lint`
 
--	### `libro make-url-safe`
+  Check for various Standard Ebooks style errors.
 
-	Make a string URL-safe.
+- ### `libro make-url-safe`
 
--	### `libro modernize-spelling`
+  Make a string URL-safe.
 
-	Modernize spelling of some archaic words, and replace words that may be archaically compounded with a dash to a more modern spelling. For example, replace `ash-tray` with `ashtray`.
+- ### `libro modernize-spelling`
 
--	### `libro prepare-release`
+  Modernize spelling of some archaic words, and replace words that may be archaically compounded with a dash to a more modern spelling. For example, replace `ash-tray` with `ashtray`.
 
-	Calculate work word count, insert release date if not yet set, and update modified date and revision number.
+- ### `libro prepare-release`
 
--	### `libro print-manifest`
+  Calculate work word count, insert release date if not yet set, and update modified date and revision number.
 
-	Print the <manifest> element for the given Standard Ebooks source directory to standard output, for use in that directory’s content.opf.
+- ### `libro print-manifest`
 
--	### `libro print-spine`
+  Print the <manifest> element for the given Standard Ebooks source directory to standard output, for use in that directory’s content.opf.
 
-	Print the <spine> element for the given Standard Ebooks source directory to standard output, for use in that directory’s content.opf.
+- ### `libro print-spine`
 
--	### `libro print-title`
+  Print the <spine> element for the given Standard Ebooks source directory to standard output, for use in that directory’s content.opf.
 
-	Print the expected value for an XHTML file’s `<title>` element.
+- ### `libro print-title`
 
--	### `libro print-toc`
+  Print the expected value for an XHTML file’s `<title>` element.
 
-	Build a table of contents for an SE source directory and print to stdout.
+- ### `libro print-toc`
 
--	### `libro recompose-epub`
+  Build a table of contents for an SE source directory and print to stdout.
 
-	Recompose a Standard Ebooks source directory into a single HTML5 file, and print to standard output.
+- ### `libro recompose-epub`
 
--	### `libro renumber-endnotes`
+  Recompose a Standard Ebooks source directory into a single HTML5 file, and print to standard output.
 
-	Renumber all endnotes and noterefs sequentially from the beginning.
+- ### `libro renumber-endnotes`
 
--	### `libro reorder-endnotes`
+  Renumber all endnotes and noterefs sequentially from the beginning.
 
-	Increment the specified endnote and all following endnotes by 1.
+- ### `libro reorder-endnotes`
 
--	### `libro roman2dec`
+  Increment the specified endnote and all following endnotes by 1.
 
-	Convert a Roman numeral to a decimal number.
+- ### `libro roman2dec`
 
--	### `libro semanticate`
+  Convert a Roman numeral to a decimal number.
 
-	Apply some scriptable semantics rules from the Standard Ebooks semantics manual to a Standard Ebook source directory.
+- ### `libro semanticate`
 
--	### `libro split-file`
+  Apply some scriptable semantics rules from the Standard Ebooks semantics manual to a Standard Ebook source directory.
 
-	Split an XHTML file into many files at all instances of `<!--se:split-->`, and include a header template for each file.
+- ### `libro split-file`
 
--	### `libro titlecase`
+  Split an XHTML file into many files at all instances of `<!--se:split-->`, and include a header template for each file.
 
-	Convert a string to titlecase.
+- ### `libro titlecase`
 
--	### `libro typogrify`
+  Convert a string to titlecase.
 
-	Apply some scriptable typography rules from the Standard Ebooks typography manual to a Standard Ebook source directory.
+- ### `libro typogrify`
 
--	### `libro unicode-names`
+  Apply some scriptable typography rules from the Standard Ebooks typography manual to a Standard Ebook source directory.
 
-	Display Unicode code points, descriptions, and links to more details for each character in a string. Useful for differentiating between different flavors of spaces, dashes, and invisible characters like word joiners.
+- ### `libro unicode-names`
 
--	### `libro version`
+  Display Unicode code points, descriptions, and links to more details for each character in a string. Useful for differentiating between different flavors of spaces, dashes, and invisible characters like word joiners.
 
-	Print the version number and exit.
+- ### `libro version`
 
--	### `libro word-count`
+  Print the version number and exit.
 
-	Count the number of words in an HTML file and optionally categorize by length.
+- ### `libro word-count`
 
--	### `libro xpath`
+  Count the number of words in an HTML file and optionally categorize by length.
 
-	Print the results of an xpath expression evaluated against a set of XHTML files. The default namespace is removed.
+- ### `libro xpath`
 
-# What a Libro.Org source directory looks like
+  Print the results of an xpath expression evaluated against a set of XHTML files. The default namespace is removed.
 
-Many of these tools act on Libro.Org source directories. Such directories have a consistent minimal structure:
+# What a Libro.org source directory looks like
 
-	.
-	|-images/
-	|--cover.jpg
-	|--cover.source.jpg
-	|--cover.svg
-	|--titlepage.svg
-	|-src/
-	|--epub/
-	|---css/
-	|----core.css
-	|----local.css
-	|----se.css
-	|---images/
-	|----cover.svg
-	|----titlepage.svg
-	|---text/
-	|----colophon.xhtml
-	|----imprint.xhtml
-	|----titlepage.xhtml
-	|----uncopyright.xhtml
-	|---content.opf
-	|---onix.xml
-	|---toc.xhtml
-	|--META-INF/
-	|---container.xml
-	|--mimetype
-	|-LICENSE.md
+Many of these tools act on Libro.org source directories. Such directories have a consistent minimal structure:
+
+    .
+    |-images/
+    |--cover.jpg
+    |--cover.source.jpg
+    |--cover.svg
+    |--titlepage.svg
+    |-src/
+    |--epub/
+    |---css/
+    |----core.css
+    |----local.css
+    |----se.css
+    |---images/
+    |----cover.svg
+    |----titlepage.svg
+    |---text/
+    |----colophon.xhtml
+    |----imprint.xhtml
+    |----titlepage.xhtml
+    |----uncopyright.xhtml
+    |---content.opf
+    |---onix.xml
+    |---toc.xhtml
+    |--META-INF/
+    |---container.xml
+    |--mimetype
+    |-LICENSE.md
 
 `./images/` contains source images for the cover and titlepages, as well as ebook-specific source images. Source images should be in their maximum available resolution, then compressed and placed in `./src/epub/images/` for distribution.
 
