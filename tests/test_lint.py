@@ -6,8 +6,7 @@ from pathlib import Path
 import pytest
 from helpers import assemble_book, run, output_is_golden
 
-# ["clean", "content", "s-058", "glossaries", "elements"]
-@pytest.mark.parametrize("test_name", ["content"])
+@pytest.mark.parametrize("test_name", ["clean", "content", "s-058", "glossaries", "elements"])
 def test_lint(data_dir: Path, draft_dir: Path, work_dir: Path, capfd, test_name: str, update_golden: bool):
 	"""Run lint command on several books with different expected lint output:
 		clean   - No errors expected
