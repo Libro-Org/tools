@@ -113,7 +113,7 @@ METADATA
 "m-023", f"[xml]<dc:identifier>[/] does not match expected: [text]{self.generated_identifier}[/]."
 "m-024", "[xml]<meta property=\"se:name.person.full-name\">[/] property identical to regular name. If the two are identical the full name [xml]<meta>[/] element must be removed."
 "m-025", "Translator found in metadata, but no [text]translated from LANG[/] block in colophon."
-"m-026", f"Project Gutenberg source not present. Expected: [xhtml]<a href=\"{link}\">Project Gutenberg</a>[/]."
+"m-026", f"Project Gutenberg source not present. Expected: [xhtml]<a href=\"{link}\">Proyecto Gutemberg</a>[/]."
 "m-027", f"HathiTrust source not present. Expected: the [xhtml]<a href=\"{link}\">HathiTrust Digital Library</a>[/]."
 "m-028", f"Internet Archive source not present. Expected: the [xhtml]<a href=\"{link}\">Internet Archive</a>[/]."
 "m-029", f"Google Books source not present. Expected: [xhtml]<a href=\"{link}\">Google Books</a>[/]."
@@ -124,7 +124,7 @@ METADATA
 "m-034", f"[val]loi[/] semantic inflection found, but no MARC relator [val]ill[/] (Illustrator)."
 "m-035", f"Unexpected SE identifier in colophon. Expected: [url]{se_url}[/]."
 "m-036", "Missing data in colophon."
-"m-037", f"Source not represented in colophon.xhtml. Expected: [xhtml]<a href=\"{link}\">Project Gutenberg</a>[/]."
+"m-037", f"Source not represented in colophon.xhtml. Expected: [xhtml]<a href=\"{link}\">Proyecto Gutemberg</a>[/]."
 "m-038", f"Source not represented in colophon.xhtml. Expected: [xhtml]the<br/> <a href=\"{link}\">HathiTrust Digital Library</a>[/]."
 "m-039", f"Source not represented in colophon.xhtml. Expected: [xhtml]the<br/> <a href=\"{link}\">Internet Archive</a>[/]."
 "m-040", f"Source not represented in colophon.xhtml. Expected: [xhtml]<a href=\"{link}\">Google Books</a>[/]."
@@ -1091,7 +1091,7 @@ def lint(self, skip_lint_ignore: bool) -> list:
 
 				# concat() to not match `halftitlepage`
 				if dom.xpath("/html/body/section[contains(concat(' ', @epub:type, ' '), ' titlepage ')]"):
-					if not dom.xpath("/html/head/title[text()='Titlepage']"):
+					if not dom.xpath("/html/head/title[text()='Portada']"):
 						messages.append(LintMessage("s-025", "Titlepage [xhtml]<title>[/] elements must contain exactly: [text]Titlepage[/].", se.MESSAGE_TYPE_ERROR, filename))
 				else:
 					# Check for common typos
@@ -1135,8 +1135,8 @@ def lint(self, skip_lint_ignore: bool) -> list:
 					if len(nodes) <= 2:
 						for node in nodes:
 							link = node.text
-							if "gutenberg.org" in link and f"<a href=\"{link}\">Project Gutenberg</a>" not in file_contents:
-								messages.append(LintMessage("m-037", f"Source not represented in colophon.xhtml. Expected: [xhtml]<a href=\"{link}\">Project Gutenberg</a>[/].", se.MESSAGE_TYPE_WARNING, filename))
+							if "gutenberg.org" in link and f"<a href=\"{link}\">Proyecto Gutemberg</a>" not in file_contents:
+								messages.append(LintMessage("m-037", f"Source not represented in colophon.xhtml. Expected: [xhtml]<a href=\"{link}\">Proyecto Gutemberg</a>[/].", se.MESSAGE_TYPE_WARNING, filename))
 
 							if "hathitrust.org" in link and f"the<br/>\n\t\t\t<a href=\"{link}\">HathiTrust Digital Library</a>" not in file_contents:
 								messages.append(LintMessage("m-038", f"Source not represented in colophon.xhtml. Expected: [xhtml]the<br/> <a href=\"{link}\">HathiTrust Digital Library</a>[/].", se.MESSAGE_TYPE_WARNING, filename))
@@ -2217,14 +2217,8 @@ def lint(self, skip_lint_ignore: bool) -> list:
 					links = self.metadata_dom.xpath("/package/metadata/dc:source/text()")
 					if len(links) <= 2:
 						for link in links:
-							if "gutenberg.org" in link and f"<a href=\"{link}\">Project Gutenberg</a>" not in file_contents:
-								messages.append(LintMessage("m-026", f"Project Gutenberg source not present. Expected: [xhtml]<a href=\"{link}\">Project Gutenberg</a>[/].", se.MESSAGE_TYPE_WARNING, filename))
-
-							if "hathitrust.org" in link and f"the <a href=\"{link}\">HathiTrust Digital Library</a>" not in file_contents:
-								messages.append(LintMessage("m-027", f"HathiTrust source not present. Expected: the [xhtml]<a href=\"{link}\">HathiTrust Digital Library</a>[/].", se.MESSAGE_TYPE_WARNING, filename))
-
-							if "archive.org" in link and f"the <a href=\"{link}\">Internet Archive</a>" not in file_contents:
-								messages.append(LintMessage("m-028", f"Internet Archive source not present. Expected: the [xhtml]<a href=\"{link}\">Internet Archive</a>[/].", se.MESSAGE_TYPE_WARNING, filename))
+							if "gutenberg.org" in link and f"<a href=\"{link}\">Proyecto Gutemberg</a>" not in file_contents:
+								messages.append(LintMessage("m-026", f"Project Gutenberg source not present. Expected: [xhtml]<a href=\"{link}\">Proyecto Gutemberg</a>[/].", se.MESSAGE_TYPE_WARNING, filename))
 
 							if ("books.google.com" in link or "www.google.com/books/" in link) and f"<a href=\"{link}\">Google Books</a>" not in file_contents:
 								messages.append(LintMessage("m-029", f"Google Books source not present. Expected: [xhtml]<a href=\"{link}\">Google Books</a>[/].", se.MESSAGE_TYPE_WARNING, filename))
