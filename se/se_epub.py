@@ -110,11 +110,11 @@ class SeEpub:
 			with open(self.metadata_file_path, "r", encoding="utf-8") as file:
 				self.metadata_xml = file.read()
 
-			if "<dc:identifier id=\"uid\">url:https://standardebooks.org/ebooks/" not in self.metadata_xml:
+			if "<dc:identifier id=\"uid\">url:https://libro.org/ebooks/" not in self.metadata_xml:
 				raise se.InvalidSeEbookException
 
 		except Exception as ex:
-			raise se.InvalidSeEbookException(f"Not a Standard Ebooks source directory: [path][link=file://{self.path}]{self.path}[/][/].") from ex
+			raise se.InvalidSeEbookException(f"Not a Libro.org source directory: [path][link=file://{self.path}]{self.path}[/][/].") from ex
 
 	@property
 	def repo(self) -> git.Repo:
@@ -164,7 +164,7 @@ class SeEpub:
 
 		if not self._generated_identifier:
 			# Add authors
-			identifier = "url:https://standardebooks.org/ebooks/"
+			identifier = "url:https://libro.org/ebooks/"
 			authors = []
 			for author in self.metadata_dom.xpath("/package/metadata/dc:creator"):
 				authors.append(author.text)
@@ -243,7 +243,7 @@ class SeEpub:
 		"""
 
 		if not self._generated_github_repo_url:
-			self._generated_github_repo_url = "https://github.com/standardebooks/" + self.generated_identifier.replace("url:https://standardebooks.org/ebooks/", "").replace("/", "_")[0:100]
+			self._generated_github_repo_url = "https://github.com/libro-org/" + self.generated_identifier.replace("url:https://libro.org/ebooks/", "").replace("/", "_")[0:100]
 
 		return self._generated_github_repo_url
 

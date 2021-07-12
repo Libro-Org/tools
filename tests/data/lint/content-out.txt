@@ -1,7 +1,5 @@
 s-033 Manual Review: chapter-1.xhtml File language is `es-ES`, but `content.opf`
 language is `LANG`.
-m-035 Error: colophon.xhtml Unexpected SE identifier in colophon. Expected: 
-`https://standardebooks.org/ebooks/jane-austen/unknown-novel`.
 m-036 Error: colophon.xhtml Missing data in colophon.
         YEAR
         PRODUCER_URL
@@ -43,9 +41,3 @@ m-055 Error: content.opf Missing data in metadata.
         PRODUCER_SORT
         PRODUCER_URL
 m-063 Error: cover.svg Cover image has not been built.
-m-062 Error: imprint.xhtml Missing data in imprint.
-        PG_URL
-        IA_URL
-s-045 Manual Review: imprint.xhtml `<abbr>` element without semantic class like 
-`name` or `initialism`.
-        <abbr>EE.UU.</abbr>
