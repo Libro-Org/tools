@@ -91,7 +91,7 @@ def build(self, run_epubcheck: bool, build_kobo: bool, build_kindle: bool, outpu
 		if not self.metadata_dom.xpath("//dc:title"):
 			raise se.InvalidSeEbookException(f"Missing [xml]<dc:title>[/] element in [path][link=file://{self.metadata_file_path}]{self.metadata_file_path}[/][/].")
 
-		output_filename = identifier.replace("https://standardebooks.org/ebooks/", "").replace("/", "_")
+		output_filename = identifier.replace("https://libro.org/ebooks/", "").replace("/", "_")
 		url_author = ""
 		for author in self.metadata_dom.xpath("//dc:creator"):
 			url_author = url_author + se.formatting.make_url_safe(author.inner_xml()) + "_"
