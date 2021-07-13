@@ -1,3 +1,11 @@
+# 0.2
+
+## General
+
+- New legal text (Uncopyright)
+- Translations
+- es-ES as main languaje 
+
 # 0.1
 
 ## General
