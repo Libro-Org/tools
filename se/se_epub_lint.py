@@ -1369,7 +1369,7 @@ def lint(self, skip_lint_ignore: bool) -> list:
 					messages.append(LintMessage("s-042", "[xhtml]<table>[/] element without [xhtml]<tbody>[/] child.", se.MESSAGE_TYPE_ERROR, filename))
 
 				# Check for <th> element without a <thead> ancestor. However, <th scope="row|rowgroup">  and <th/> are allowed, for use in vertical table headers
-				# like in https://standardebooks.org/ebooks/charles-babbage/passages-from-the-life-of-a-philosopher
+				# like in https://libro.org/ebooks/charles-babbage/passages-from-the-life-of-a-philosopher
 				if dom.xpath("/html/body//table//th[not(ancestor::thead)][not(contains(@scope, 'row'))][not(count(node())=0)]"):
 					messages.append(LintMessage("s-055", "[xhtml]<th>[/] element not in [xhtml]<thead>[/] ancestor. Note: [xhtml]<th>[/] elements used as horizontal row headings require the [attr]scope[/] attribute of [val]row[/] or [val]rowgroup[/].", se.MESSAGE_TYPE_ERROR, filename))
 

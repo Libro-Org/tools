@@ -475,7 +475,7 @@ class SeEpub:
 			dom = self.get_dom(self.path / "src" / "epub" / filename)
 
 			# Apply the stylesheet to see if we have `position: absolute` on any items. If so, apply `position: relative` to its closest <section> ancestor
-			# See https://standardebooks.org/ebooks/jean-toomer/cane for an example of this in action
+			# See https://libro.org/ebooks/jean-toomer/cane for an example of this in action
 			dom.apply_css(css)
 
 			# Select deepest sections or articles with id attributes that have ONLY figure or img children, and one of those children has position: absolute
