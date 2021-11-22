@@ -498,7 +498,7 @@ def process_a_heading(node: EasyXmlElement, textf: str, is_toplevel: bool, singl
 		if ("fulltitle" in epub_type) and (node.tag == "hgroup"):
 			evaluate_descendants(node, toc_item)
 			return toc_item
-		# or it may be a straightforward one-level title eg: <h2 epub:type="title">Imprenta</h2>
+		# or it may be a straightforward one-level title eg: <h2 epub:type="title">Sobre Libro.org</h2>
 		if "title" in epub_type:
 			toc_item.title = extract_strings(node)
 			return toc_item

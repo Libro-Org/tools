@@ -1,4 +1,4 @@
-s-033 Manual Review: chapter-1.xhtml File language is `es-ES`, but `content.opf`
+s-033 Manual Review: chapter-1.xhtml File language is `es`, but `content.opf`
 language is `LANG`.
 m-036 Error: colophon.xhtml Missing data in colophon.
         YEAR

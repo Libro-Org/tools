@@ -15,7 +15,7 @@ def get_xhtml_language(xhtml: str) -> str:
 	Try to get the IETF lang tag for a complete XHTML document
 	"""
 
-	supported_languages = ["es-ES"]
+	supported_languages = ["es"]
 
 	match = regex.search(r"<html[^>]+?xml:lang=\"([^\"]+)\"", xhtml)
 
