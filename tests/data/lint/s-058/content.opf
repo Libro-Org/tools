@@ -47,7 +47,7 @@
 		<meta property="se:word-count">WORD_COUNT</meta>
 		<meta property="se:reading-ease.flesch">READING_EASE</meta>
 		<meta property="se:url.encyclopedia.wikipedia">https://en.wikipedia.org/wiki/Jane_Austen/standardebooks/jane-austen_unknown-novel</meta>
-		<meta property="se:url.vcs.github">https://github.com/standardebooks/jane-austen_unknown-novel</meta>
+		<meta property="se:url.vcs.github">https://github.com/libro-org/jane-austen_unknown-novel</meta>
 		<dc:creator id="author">Jane Austen</dc:creator>
 		<meta property="file-as" refines="#author">Austen, Jane</meta>
 		<meta property="se:name.person.full-name" refines="#author">Test full name</meta>
