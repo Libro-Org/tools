@@ -6,3 +6,7 @@ some other material.</dd>
 s-062 Error: glossary.xhtml `<dt>` element in a glossary without exactly one 
 `<dfn>` child.
         <dt>Aberrant</dt>
+s-023 Manual Review: imprint.xhtml Title `Sobre Libro.org` not correctly 
+titlecased. Expected: `Sobre libro.org`.
+s-023 Manual Review: uncopyright.xhtml Title `Aviso legal` not correctly 
+titlecased. Expected: `Aviso Legal`.

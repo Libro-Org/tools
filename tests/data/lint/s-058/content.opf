@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://www.idpf.org/2007/opf" dir="ltr" prefix="se: https://standardebooks.org/vocab/1.0" unique-identifier="uid" version="3.0" xml:lang="es-ES">
+<package xmlns="http://www.idpf.org/2007/opf" dir="ltr" prefix="se: https://standardebooks.org/vocab/1.0" unique-identifier="uid" version="3.0" xml:lang="es">
 	<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
 		<dc:identifier id="uid">url:https://libro.org/ebooks/jane-austen/unknown-novel</dc:identifier>
 		<dc:date>1900-01-01T00:00:00Z</dc:date>
@@ -47,7 +47,7 @@
 		<meta property="se:word-count">WORD_COUNT</meta>
 		<meta property="se:reading-ease.flesch">READING_EASE</meta>
 		<meta property="se:url.encyclopedia.wikipedia">https://en.wikipedia.org/wiki/Jane_Austen/standardebooks/jane-austen_unknown-novel</meta>
-		<meta property="se:url.vcs.github">https://github.com/standardebooks/jane-austen_unknown-novel</meta>
+		<meta property="se:url.vcs.github">https://github.com/libro-org/jane-austen_unknown-novel</meta>
 		<dc:creator id="author">Jane Austen</dc:creator>
 		<meta property="file-as" refines="#author">Austen, Jane</meta>
 		<meta property="se:name.person.full-name" refines="#author">Test full name</meta>

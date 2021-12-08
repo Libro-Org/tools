@@ -649,7 +649,7 @@ def _create_draft(args: Namespace):
 			raise se.InvalidEncodingException(f"Couldn’t determine text encoding of Project Gutenberg HTML file. Exception: {ex}")
 
 		# TODO: Modify for different spanish code
-		pg_language = "es-ES"
+		pg_language = "es"
 
 	# Create necessary directories
 	(repo_path / "images").mkdir(parents=True)

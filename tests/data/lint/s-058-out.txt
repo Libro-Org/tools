@@ -1,5 +1,3 @@
-m-009 Error: content.opf `<meta property="se:url.vcs.github">` value does not 
-match expected: `https://github.com/libro-org/jane-austen_unknown-novel`.
 x-018 Error: content.opf Unused `id` attribute.
         note-1
         note-2
@@ -8,3 +6,7 @@ m-063 Error: cover.svg Cover image has not been built.
 s-056 Error: endnotes.xhtml Last `<p>` child of endnote missing backlink.
         <li id="note-2" epub:type="endnote">
         <li id="note-3" epub:type="endnote">
+s-023 Manual Review: imprint.xhtml Title `Sobre Libro.org` not correctly 
+titlecased. Expected: `Sobre libro.org`.
+s-023 Manual Review: uncopyright.xhtml Title `Aviso legal` not correctly 
+titlecased. Expected: `Aviso Legal`.
