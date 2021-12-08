@@ -1,4 +1,6 @@
-s-033 Manual Review: chapter-1.xhtml File language is `es`, but `content.opf`
+f-003 Error: LICENSE.md File does not match 
+`/mnt/c/Code/libro-org/tools/se/data/templates/LICENSE.md`.
+s-033 Manual Review: chapter-1.xhtml File language is `es`, but `content.opf` 
 language is `LANG`.
 m-036 Error: colophon.xhtml Missing data in colophon.
         YEAR
@@ -41,3 +43,7 @@ m-055 Error: content.opf Missing data in metadata.
         PRODUCER_SORT
         PRODUCER_URL
 m-063 Error: cover.svg Cover image has not been built.
+s-023 Manual Review: imprint.xhtml Title `Sobre Libro.org` not correctly 
+titlecased. Expected: `Sobre libro.org`.
+s-023 Manual Review: uncopyright.xhtml Title `Aviso legal` not correctly 
+titlecased. Expected: `Aviso Legal`.

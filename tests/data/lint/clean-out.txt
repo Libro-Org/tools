@@ -1,1 +1,7 @@
+f-003 Error: LICENSE.md File does not match 
+`/mnt/c/Code/libro-org/tools/se/data/templates/LICENSE.md`.
 m-063 Error: cover.svg Cover image has not been built.
+s-023 Manual Review: imprint.xhtml Title `Sobre Libro.org` not correctly 
+titlecased. Expected: `Sobre libro.org`.
+s-023 Manual Review: uncopyright.xhtml Title `Aviso legal` not correctly 
+titlecased. Expected: `Aviso Legal`.
